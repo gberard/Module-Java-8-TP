@@ -13,5 +13,19 @@ class TpJava04 {
 			remise = 0.05f;
 		}
 		System.out.println("Remise : " + (montant*remise) + " (" + (100*remise) + "%)" );
+		
+		int taille = Integer.parseInt(args[1]);
+		String texte;
+		switch(taille){
+			case 1 : 
+				texte = "petit";
+				break;
+			case 2 :
+				texte = "moyen";
+				break;
+			default :
+				texte = "grand";
+		}
+		System.out.println("Taille : " + texte);
 	}
 }
