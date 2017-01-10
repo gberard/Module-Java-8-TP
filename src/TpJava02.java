@@ -11,5 +11,16 @@ class TpJava02 {
 		decimal = entier;
 		System.out.println(entier);
 		System.out.println(decimal);
+		
+		System.out.println("Valeurs spéciales");
+		float x = 15;
+		float z = 0;
+		float y = -123;
+		float a = x/z; // division par zéro !!
+		float b = y/z; // division par zéro négative !!
+		float c = a/b; // utilisation de valeur résultat de division par zéro !!
+		System.out.println("a : " + a);
+		System.out.println("b : " + b);
+		System.out.println("c : " + c);
 	}
 }
