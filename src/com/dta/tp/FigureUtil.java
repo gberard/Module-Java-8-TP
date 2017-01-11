@@ -2,10 +2,9 @@ package com.dta.tp;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Iterator;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class FigureUtil {
 	
@@ -102,38 +101,24 @@ public class FigureUtil {
 		return collection;
 	}
 	
-	public static Figure getFigureEn(Point p, Dessin d){
-		Iterator<Figure> iterator = d.getFigures().iterator();
-		while(iterator.hasNext()){
-			Figure f = iterator.next();
-			if(f.couvre(p)){
-				return f;
-			}
-		}
-		return null;
+	public static Optional<Figure> getFigureEn(Point p, Dessin d){
+		return d.getFigures().stream()
+			.filter(f -> f.couvre(p))
+			.findFirst();
 	}
 	
-	public static List<Figure> trieProcheOrigine(Dessin dessin){
-		List<Figure> figures = new ArrayList<Figure>();
-		figures.addAll(dessin.getFigures());
-		Collections.sort(figures);
-		return figures;
+	public static List<Object> trieProcheOrigine(Dessin dessin){
+		return dessin.getFigures().stream()
+				.sorted()
+				.collect(Collectors.toList());
 	}
 	
 	public static List<Surfacable> trieDominant(Dessin dessin){
-		List<Surfacable> figures = new ArrayList<Surfacable>();
-		for(Figure f : dessin.getFigures()){
-			if(f instanceof Surfacable){
-				figures.add((Surfacable)f);
-			}
-		}
-		Collections.sort(figures, new Comparator<Surfacable>() {
-			@Override
-			public int compare(Surfacable s1, Surfacable s2) {
-				return s1.surface() - s2.surface() > 0 ? -1 : 1;
-			}
-		});
-		return figures;
+		return dessin.getFigures().stream()
+				.filter(f -> f instanceof Surfacable)
+				.map(x -> (Surfacable) x)
+				.sorted( (f1,f2) -> f1.surface() > f2.surface() ? -1 : 1)
+				.collect(Collectors.toList());
 	}
 	
 }

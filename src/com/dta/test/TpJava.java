@@ -1,6 +1,7 @@
 package com.dta.test;
 
 import java.util.Collection;
+import java.util.Optional;
 
 import com.dta.tp.Carre;
 import com.dta.tp.Dessin;
@@ -91,11 +92,11 @@ public class TpJava {
 			dessin.add(f);
 		}
 		
-		Figure couverte = FigureUtil.getFigureEn(new Point(), dessin);
-		if(couverte==null){
+		Optional<Figure> couverte = FigureUtil.getFigureEn(new Point(), dessin);
+		if(!couverte.isPresent()){
 			System.out.println("Rien");
 		} else {
-			couverte.affiche();
+			couverte.get().affiche();
 		}
 		
 		System.out.println(rt1.equals(rt1)); // true

@@ -1,6 +1,7 @@
 package com.dta.tp;
 
 import java.util.Collection;
+import java.util.Optional;
 
 public abstract class Figure implements Comparable<Figure> {
 	
@@ -15,13 +16,14 @@ public abstract class Figure implements Comparable<Figure> {
 	}
 	
 	public double distanceOrigine(){
-		double distance = Double.POSITIVE_INFINITY;
-		for(Point p : getPoints()){
-			if(p.distanceOrigine()<distance){
-				distance = p.distanceOrigine();
-			}
+		Optional<Double> distance = getPoints().stream()
+				.map(p -> p.distanceOrigine())
+				.max((d1,d2) -> d1>d2 ? -1 : 1 );
+		if(distance.isPresent()){
+			return distance.get();
+		} else {
+			return Double.POSITIVE_INFINITY;
 		}
-		return distance;
 	}
 	
 	public int compareTo(Figure f){
