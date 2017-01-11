@@ -65,4 +65,17 @@ public class FigureUtil {
 		
 	}
 	
+	public static Surfacable getRandomSurfacable(){
+		int choix = getRandomInteger(0, 2);
+		switch(choix){
+		case 0 : 
+			return getRandomRond();
+		case 1 : 
+			return getRandomCarre();
+		default : 
+			return getRandomRectangle();
+		}
+		
+	}
+	
 }

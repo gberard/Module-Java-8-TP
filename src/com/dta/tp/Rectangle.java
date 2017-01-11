@@ -1,6 +1,6 @@
 package com.dta.tp;
 
-public class Rectangle extends Figure {
+public class Rectangle extends Figure implements Surfacable {
 	
 	private Point basGauche, basDroit, hautGauche, hautDroit;
 	
@@ -40,6 +40,13 @@ public class Rectangle extends Figure {
 		int x = (this.getPointBasDroit().getX() + this.getPointHautGauche().getX() ) / 2;
 		int y = (this.getPointBasDroit().getY() + this.getPointHautGauche().getY() ) / 2;
 		return new Point(x, y);
+	}
+
+	@Override
+	public double surface() {
+		int largeur = this.getPointHautDroit().getX() - this.getPointBasGauche().getX();
+		int hauteur = this.getPointHautDroit().getY() - this.getPointBasGauche().getY();
+		return largeur * hauteur;
 	}
 	
 }

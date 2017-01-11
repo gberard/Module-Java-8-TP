@@ -1,6 +1,6 @@
 package com.dta.tp;
 
-public class Rond extends Figure {
+public class Rond extends Figure implements Surfacable {
 	
 	private Point centre;
 	private int rayon;
@@ -17,6 +17,11 @@ public class Rond extends Figure {
 	@Override
 	public Point getCentre() {
 		return centre;
+	}
+
+	@Override
+	public double surface() {
+		return this.rayon * this.rayon * Math.PI;
 	}
 	
 }

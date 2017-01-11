@@ -7,6 +7,7 @@ import com.dta.tp.Point;
 import com.dta.tp.Rectangle;
 import com.dta.tp.Rond;
 import com.dta.tp.Segment;
+import com.dta.tp.Surfacable;
 
 public class TpJava {
 	public static void main(String args[]){
@@ -62,6 +63,19 @@ public class TpJava {
 		s1.affiche();
 		Segment s2 = new Segment( new Point(20, 20), 5 , false );
 		s2.affiche();
+		
+		System.out.println(rd1.surface());
+		System.out.println(rt1.surface());
+		System.out.println(c1.surface());
+		
+		Surfacable sr1 = FigureUtil.getRandomSurfacable();
+		System.out.println(sr1 + " -> " + sr1.surface());
+		
+		Surfacable sr2 = FigureUtil.getRandomSurfacable();
+		System.out.println(sr2 + " -> " + sr2.surface());
+		
+		Surfacable sr3 = FigureUtil.getRandomSurfacable();
+		System.out.println(sr3 + " -> " + sr3.surface());
 		
 	}
 }
