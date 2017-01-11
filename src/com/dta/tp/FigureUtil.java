@@ -2,7 +2,10 @@ package com.dta.tp;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Iterator;
+import java.util.List;
 
 public class FigureUtil {
 	
@@ -108,6 +111,29 @@ public class FigureUtil {
 			}
 		}
 		return null;
+	}
+	
+	public static List<Figure> trieProcheOrigine(Dessin dessin){
+		List<Figure> figures = new ArrayList<Figure>();
+		figures.addAll(dessin.getFigures());
+		Collections.sort(figures);
+		return figures;
+	}
+	
+	public static List<Surfacable> trieDominant(Dessin dessin){
+		List<Surfacable> figures = new ArrayList<Surfacable>();
+		for(Figure f : dessin.getFigures()){
+			if(f instanceof Surfacable){
+				figures.add((Surfacable)f);
+			}
+		}
+		Collections.sort(figures, new Comparator<Surfacable>() {
+			@Override
+			public int compare(Surfacable s1, Surfacable s2) {
+				return s1.surface() - s2.surface() > 0 ? -1 : 1;
+			}
+		});
+		return figures;
 	}
 	
 }

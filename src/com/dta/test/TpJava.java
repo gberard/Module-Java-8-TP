@@ -101,5 +101,9 @@ public class TpJava {
 		System.out.println(rt1.equals(rt1)); // true
 		System.out.println(rt1.equals(rt2)); // false
 		System.out.println(rt1.equals(new Rectangle(new Point(10,3), 2, 6))); // true
+		
+		System.out.println(FigureUtil.trieProcheOrigine(dessin));
+		System.out.println(FigureUtil.trieDominant(dessin));
+		
 	}
 }
