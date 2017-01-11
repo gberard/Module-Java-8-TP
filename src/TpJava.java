@@ -12,5 +12,21 @@ public class TpJava {
 		
 		Rectangle rt1 = new Rectangle( new Point(10,3) , 2, 6);
 		rt1.affiche();
+		
+		Point p0 = new Point();
+		System.out.println(p0);
+		
+		Rond rd2 = FigureUtil.getRandomRond();
+		System.out.println(rd2);
+		
+		Rond rd3 = FigureUtil.getRandomRond();
+		System.out.println(rd3);
+		
+		Rectangle rt2 = FigureUtil.getRandomRectangle();
+		System.out.println(rt2);
+		
+		Rectangle rt3 = FigureUtil.getRandomRectangle();
+		System.out.println(rt3);
+		
 	}
 }
