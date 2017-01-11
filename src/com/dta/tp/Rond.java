@@ -1,6 +1,6 @@
 package com.dta.tp;
 
-public class Rond {
+public class Rond extends Figure {
 	
 	private Point centre;
 	private int rayon;
@@ -14,8 +14,9 @@ public class Rond {
 		return "[ROND "+centre+" "+rayon+"]";
 	}
 	
-	public void affiche(){
-		System.out.println(this.toString());
+	@Override
+	public Point getCentre() {
+		return centre;
 	}
 	
 }

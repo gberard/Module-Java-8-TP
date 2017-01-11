@@ -34,7 +34,7 @@ public class TpJava {
 		
 		Rectangle rt3 = FigureUtil.getRandomRectangle();
 		System.out.println(rt3);
-
+		
 		Point p2 = new Point(6,1);
 		Point p3 = new Point(5,1);
 		Point p4 = new Point(6,2);
@@ -46,6 +46,6 @@ public class TpJava {
 		
 		Carre c1 = new Carre(p3, 5);
 		System.out.println(c1);
-
+		
 	}
 }

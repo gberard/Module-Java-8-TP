@@ -1,6 +1,6 @@
 package com.dta.tp;
 
-public class Rectangle {
+public class Rectangle extends Figure {
 	
 	private Point basGauche, basDroit, hautGauche, hautDroit;
 	
@@ -35,8 +35,11 @@ public class Rectangle {
 		return "["+getType()+" "+getPointBasDroit()+" "+getPointBasGauche()+" "+getPointHautGauche()+" "+getPointHautDroit()+" ]";
 	}
 	
-	public void affiche(){
-		System.out.println(this.toString());
+	@Override
+	public Point getCentre() {
+		int x = (this.getPointBasDroit().getX() + this.getPointHautGauche().getX() ) / 2;
+		int y = (this.getPointBasDroit().getY() + this.getPointHautGauche().getY() ) / 2;
+		return new Point(x, y);
 	}
 	
 }
