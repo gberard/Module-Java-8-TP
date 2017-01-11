@@ -43,4 +43,12 @@ public class Rond extends Figure implements Surfacable {
 		return d <= rayon;
 	}
 	
+	public boolean equals(Object o){
+		if(o instanceof Rond){
+			Rond r = (Rond) o;
+			return this.centre.equals(r.centre) && (this.rayon == r.rayon);
+		} else {
+			return false;
+		}
+	}
 }

@@ -28,7 +28,7 @@ public class Point {
 		return "["+getX()+";"+getY()+"]";
 	}
 	
-	public boolean Equals(Object o){
+	public boolean equals(Object o){
 		if(o instanceof Point){
 			Point p = (Point) o;
 			return (p.getX() == this.getX())&&(p.getY() == this.getY());

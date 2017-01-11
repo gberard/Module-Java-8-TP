@@ -57,4 +57,12 @@ public class Segment extends Figure {
 		return true;
 	}
 	
+	public boolean equals(Object o){
+		if(o instanceof Segment){
+			Segment s = (Segment) o;
+			return (this.getDebut().equals(s.getDebut()) && this.getFin().equals(s.getFin()));
+		} else {
+			return false;
+		}
+	}
 }

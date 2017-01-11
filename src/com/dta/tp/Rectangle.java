@@ -80,4 +80,14 @@ public class Rectangle extends Figure implements Surfacable {
 		return true;
 	}
 	
+	public boolean equals(Object o){
+		if(o instanceof Rectangle){
+			Rectangle r = (Rectangle) o;
+			return this.getPointBasDroit().equals(r.getPointBasDroit())
+					&& this.getPointHautGauche().equals(r.getPointHautGauche());
+		} else {
+			return false;
+		}
+	}
+	
 }
