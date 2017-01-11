@@ -1,5 +1,8 @@
 package com.dta.tp;
 
+import java.util.Collection;
+import java.util.HashSet;
+
 public class Rectangle extends Figure implements Surfacable {
 	
 	private Point basGauche, basDroit, hautGauche, hautDroit;
@@ -50,8 +53,14 @@ public class Rectangle extends Figure implements Surfacable {
 	}
 
 	@Override
-	public Point[] getPoints() {
-		return new Point[]{getPointBasDroit(), getPointBasGauche(), getPointHautGauche(), getPointHautDroit()};
+	public Collection<Point> getPoints() {
+		// Il n'y a pas de doublon, il n'y a pas d'ordre
+		Collection<Point> collection = new HashSet<Point>();
+		collection.add(getPointBasDroit());
+		collection.add(getPointBasGauche());
+		collection.add(getPointHautGauche());
+		collection.add(getPointHautDroit());
+		return collection;
 	}
 	
 }

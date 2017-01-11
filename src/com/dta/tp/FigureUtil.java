@@ -1,15 +1,18 @@
 package com.dta.tp;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 public class FigureUtil {
 	
 	private static final int SIZE_MIN = 1;
 	private static final int SIZE_MAX = 20;
 	
 	private static final int X_MIN = 0;
-	private static final int X_MAX = 50;
+	private static final int X_MAX = 99;
 	
 	private static final int Y_MIN = 0;
-	private static final int Y_MAX = 50;
+	private static final int Y_MAX = 99;
 
 	// Création d'un constructeur private afin d'interdire l'instanciation de cette classe.
 	private FigureUtil(){}
@@ -78,20 +81,21 @@ public class FigureUtil {
 		
 	}
 	
-	public static Point[] getPoints(Figure... figures){
-		int nbPoint = 0;
+	public static Collection<Point> getPoints(Figure... figures){
+		// Il peut y avoir des doublons
+		Collection<Point> points = new ArrayList<Point>();
 		for(Figure f : figures){
-			nbPoint+= f.getPoints().length;
-		}
-		Point[] points = new Point[nbPoint];
-		int index = 0;
-		for(Figure f : figures){
-			Point[] temps = f.getPoints();
-			for(int i=0;i<temps.length;i++, index++){
-				points[index]= temps[i];
-			}
+			points.addAll(f.getPoints());
 		}
 		return points;
+	}
+	
+	public static Collection<Figure> genere(int nb){
+		Collection<Figure> collection = new ArrayList<Figure>();
+		for(int i=0;i<nb;i++){
+			collection.add(getRandomFigure());
+		}
+		return collection;
 	}
 	
 }

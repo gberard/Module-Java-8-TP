@@ -1,5 +1,8 @@
 package com.dta.tp;
 
+import java.util.Collection;
+import java.util.HashSet;
+
 public class Segment extends Figure {
 	
 	private Point debut, fin;
@@ -29,8 +32,12 @@ public class Segment extends Figure {
 	}
 
 	@Override
-	public Point[] getPoints() {
-		return new Point[]{debut, fin};
+	public Collection<Point> getPoints() {
+		// Il n'y a pas de doublon, il n'y a pas d'ordre
+		Collection<Point> collection = new HashSet<Point>();
+		collection.add(debut);
+		collection.add(fin);
+		return collection;
 	}
 	
 }

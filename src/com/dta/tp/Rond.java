@@ -1,5 +1,8 @@
 package com.dta.tp;
 
+import java.util.Collection;
+import java.util.HashSet;
+
 public class Rond extends Figure implements Surfacable {
 	
 	private Point centre;
@@ -25,8 +28,11 @@ public class Rond extends Figure implements Surfacable {
 	}
 
 	@Override
-	public Point[] getPoints() {
-		return new Point[]{centre};
+	public Collection<Point> getPoints() {
+		// Il n'y a pas de doublon, il n'y a pas d'ordre
+		Collection<Point> collection = new HashSet<Point>();
+		collection.add(centre);
+		return collection;
 	}
 	
 }
