@@ -8,6 +8,11 @@ public class Rectangle extends Figure implements Surfacable {
 	private Point basGauche, basDroit, hautGauche, hautDroit;
 	
 	public Rectangle(Point p, int largeur, int hauteur){
+		this(Couleur.getCouleurDefaut(), p, largeur, hauteur);
+	}
+	
+	public Rectangle(Couleur c, Point p, int largeur, int hauteur){
+		super(c);
 		basGauche = new Point( p.getX() , p.getY() );
 		basDroit = new Point( p.getX() + largeur , p.getY() );
 		hautGauche = new Point( p.getX() , p.getY() + hauteur );
@@ -35,7 +40,18 @@ public class Rectangle extends Figure implements Surfacable {
 	}
 	
 	public String toString(){
-		return "["+getType()+" "+getPointBasDroit()+" "+getPointBasGauche()+" "+getPointHautGauche()+" "+getPointHautDroit()+" ]";
+		return "["	+getType()
+					+" "
+					+getCouleur().getCode()
+					+" "
+					+getPointBasDroit()
+					+" "
+					+getPointBasGauche()
+					+" "
+					+getPointHautGauche()
+					+" "
+					+getPointHautDroit()
+					+" ]";
 	}
 	
 	@Override
@@ -84,7 +100,8 @@ public class Rectangle extends Figure implements Surfacable {
 		if(o instanceof Rectangle){
 			Rectangle r = (Rectangle) o;
 			return this.getPointBasDroit().equals(r.getPointBasDroit())
-					&& this.getPointHautGauche().equals(r.getPointHautGauche());
+					&& this.getPointHautGauche().equals(r.getPointHautGauche())
+					&& (this.getCouleur() == r.getCouleur());
 		} else {
 			return false;
 		}

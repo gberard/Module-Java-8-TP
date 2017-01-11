@@ -7,9 +7,14 @@ public class Segment extends Figure {
 	
 	private Point debut, fin;
 	
-	public Segment(Point p, int longeur, boolean horizontal){
+	public Segment(Point p, int longueur, boolean horizontal){
+		this(Couleur.getCouleurDefaut(), p, longueur, horizontal);
+	}
+	
+	public Segment(Couleur c, Point p, int longueur, boolean horizontal){
+		super(c);
 		debut = new Point(p.getX(), p.getY());
-		fin = new Point(p.getX() + (horizontal?longeur:0), p.getY() + (horizontal?0:longeur));
+		fin = new Point(p.getX() + (horizontal?longueur:0), p.getY() + (horizontal?0:longueur));
 	}
 	
 	public Point getDebut(){
@@ -25,7 +30,14 @@ public class Segment extends Figure {
 	}
 	
 	public String toString(){
-		return "["+getType()+" "+getDebut()+" "+getFin()+" ]";
+		return "["	+getType()
+					+" "
+					+ getCouleur().getCode()
+					+" "
+					+getDebut()
+					+" "
+					+getFin()
+					+" ]";
 	}
 	
 	@Override
@@ -64,7 +76,7 @@ public class Segment extends Figure {
 	public boolean equals(Object o){
 		if(o instanceof Segment){
 			Segment s = (Segment) o;
-			return (this.getDebut().equals(s.getDebut()) && this.getFin().equals(s.getFin()));
+			return (this.getDebut().equals(s.getDebut()) && this.getFin().equals(s.getFin())) && (this.getCouleur() == s.getCouleur());
 		} else {
 			return false;
 		}

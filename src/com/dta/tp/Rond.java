@@ -9,6 +9,11 @@ public class Rond extends Figure implements Surfacable {
 	private int rayon;
 	
 	public Rond(Point centre, int rayon){
+		this(Couleur.getCouleurDefaut(), centre, rayon);
+	}
+	
+	public Rond(Couleur c, Point centre, int rayon){
+		super(c);
 		this.centre = centre;
 		this.rayon = rayon;
 	}
@@ -18,7 +23,14 @@ public class Rond extends Figure implements Surfacable {
 	}
 	
 	public String toString(){
-		return "["+getType()+" "+centre+" "+rayon+"]";
+		return "["	+getType()
+					+" "
+					+getCouleur().getCode()
+					+" "
+					+centre
+					+" "
+					+rayon
+					+"]";
 	}
 	
 	@Override
@@ -50,7 +62,7 @@ public class Rond extends Figure implements Surfacable {
 	public boolean equals(Object o){
 		if(o instanceof Rond){
 			Rond r = (Rond) o;
-			return this.centre.equals(r.centre) && (this.rayon == r.rayon);
+			return this.centre.equals(r.centre) && (this.rayon == r.rayon) && (this.getCouleur() == r.getCouleur());
 		} else {
 			return false;
 		}

@@ -7,9 +7,14 @@ public abstract class Figure implements Comparable<Figure> {
 	
 	private static int nextID = 1;
 	private final String id = getType() + (nextID++);
+	private Couleur couleur;
 	
 	public String getId(){
 		return id;
+	}
+	
+	protected Figure(Couleur c){
+		couleur = c;
 	}
 	
 	protected abstract String getType();
@@ -19,6 +24,10 @@ public abstract class Figure implements Comparable<Figure> {
 	public abstract Collection<Point> getPoints();
 	
 	public abstract boolean couvre(Point p);
+	
+	public Couleur getCouleur(){
+		return couleur;
+	}
 	
 	public void affiche(){
 		System.out.println(this.toString());

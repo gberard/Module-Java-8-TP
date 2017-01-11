@@ -24,6 +24,12 @@ public class FigureUtil {
 	// Création d'un constructeur private afin d'interdire l'instanciation de cette classe.
 	private FigureUtil(){}
 	
+	private static Couleur getRandomCouleur(){
+		Couleur values[] = Couleur.values();
+		int index = getRandomInteger(0, values.length-1);
+		return values[index];
+	}
+	
 	private static int getRandomInteger(int min, int max){
 		return (int) Math.round(Math.random() * (max - min)) + min;
 	}
@@ -37,7 +43,8 @@ public class FigureUtil {
 	public static Rond getRandomRond(){
 		int rayon = getRandomInteger(SIZE_MIN / 2, SIZE_MAX / 2);
 		Point centre = getRandomPoint(X_MIN, X_MAX, Y_MIN, Y_MAX);
-		Rond rond = new Rond(centre, rayon);
+		Couleur couleur = getRandomCouleur();
+		Rond rond = new Rond(couleur, centre, rayon);
 		ids.put(rond.getId(), rond);
 		return rond;
 	}
@@ -46,7 +53,8 @@ public class FigureUtil {
 		int largeur = getRandomInteger(SIZE_MIN, SIZE_MAX);
 		int hauteur = getRandomInteger(SIZE_MIN, SIZE_MAX);
 		Point basGauche = getRandomPoint(X_MIN, X_MAX, Y_MIN, Y_MAX);
-		Rectangle rectangle = new Rectangle(basGauche, largeur, hauteur);
+		Couleur couleur = getRandomCouleur();
+		Rectangle rectangle = new Rectangle(couleur, basGauche, largeur, hauteur);
 		ids.put(rectangle.getId(), rectangle);
 		return rectangle;
 	}
@@ -54,7 +62,8 @@ public class FigureUtil {
 	public static Carre getRandomCarre(){
 		int cote = getRandomInteger(SIZE_MIN, SIZE_MAX);
 		Point basGauche = getRandomPoint(X_MIN, X_MAX, Y_MIN, Y_MAX);
-		Carre carre = new Carre(basGauche, cote);
+		Couleur couleur = getRandomCouleur();
+		Carre carre = new Carre(couleur, basGauche, cote);
 		ids.put(carre.getId(), carre);
 		return carre;
 	}
@@ -63,7 +72,8 @@ public class FigureUtil {
 		Point debut = getRandomPoint(X_MIN, X_MAX, Y_MIN, Y_MAX);
 		int longueur = getRandomInteger(SIZE_MIN, SIZE_MAX);
 		boolean horizontal = getRandomInteger(0, 1) > 0.5;
-		Segment segment = new Segment(debut, longueur, horizontal);
+		Couleur couleur = getRandomCouleur();
+		Segment segment = new Segment(couleur, debut, longueur, horizontal);
 		ids.put(segment.getId(), segment);
 		return segment;
 	}
