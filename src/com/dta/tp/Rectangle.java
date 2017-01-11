@@ -27,8 +27,12 @@ public class Rectangle {
 		return hautDroit;
 	}
 	
+	protected String getType(){
+		return "RECT";
+	}
+	
 	public String toString(){
-		return "[RECT "+getPointBasDroit()+" "+getPointBasGauche()+" "+getPointHautGauche()+" "+getPointHautDroit()+" ]";
+		return "["+getType()+" "+getPointBasDroit()+" "+getPointBasGauche()+" "+getPointHautGauche()+" "+getPointHautDroit()+" ]";
 	}
 	
 	public void affiche(){

@@ -6,8 +6,8 @@ public class Carre extends Rectangle{
 		super(p, cote, cote);
 	}
 	
-	public String toString(){
-		return "[CARRE "+getPointBasDroit()+" "+getPointBasGauche()+" "+getPointHautGauche()+" "+getPointHautDroit()+" ]";
+	protected String getType(){
+		return "CARRE";
 	}
 	
 }
