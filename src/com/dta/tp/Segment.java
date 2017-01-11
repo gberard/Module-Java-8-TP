@@ -84,4 +84,9 @@ public class Segment extends Figure implements Serializable {
 			return false;
 		}
 	}
+
+	@Override
+	public Collection<Point> getPointsExtremes() {
+		return getPoints();
+	}
 }

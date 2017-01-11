@@ -28,6 +28,8 @@ public abstract class Figure implements Comparable<Figure>, Serializable {
 	
 	public abstract boolean couvre(Point p);
 	
+	public abstract Collection<Point> getPointsExtremes();
+	
 	public Couleur getCouleur(){
 		return couleur;
 	}

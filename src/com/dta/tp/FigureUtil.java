@@ -14,6 +14,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class FigureUtil {
@@ -159,7 +160,24 @@ public class FigureUtil {
 		}
 	}
 	
-	public static void imprime(Dessin d) throws IOException {
+	public static void imprime(Dessin d) throws IOException, ImpressionHorsLimiteException {
+		
+		Predicate<Point> xTropPetit = p -> p.getX() < X_MIN;
+		Predicate<Point> yTropPetit = p -> p.getY() < Y_MIN;
+		Predicate<Point> xTropGrand = p -> p.getX() > X_MAX;
+		Predicate<Point> yTropGrand = p -> p.getY() > Y_MAX;
+		
+		Optional<Point> mauvais = d.getPointsExtremes()
+									.stream()
+									.filter(xTropPetit
+											.or(yTropPetit)
+											.or(xTropGrand)
+											.or(yTropGrand))
+									.findAny();
+		if(mauvais.isPresent()){
+			throw new ImpressionHorsLimiteException();
+		}
+		
 		File file = File.createTempFile("monDessin", ".dessin");
 		PrintWriter sortie = new PrintWriter(new FileOutputStream(file));
 		d.getFigures().stream()

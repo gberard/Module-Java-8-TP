@@ -109,5 +109,10 @@ public class Rectangle extends Figure implements Surfacable, Serializable {
 			return false;
 		}
 	}
+
+	@Override
+	public Collection<Point> getPointsExtremes() {
+		return getPoints();
+	}
 	
 }

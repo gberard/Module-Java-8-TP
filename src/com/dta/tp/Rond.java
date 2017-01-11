@@ -70,4 +70,14 @@ public class Rond extends Figure implements Surfacable, Serializable{
 			return false;
 		}
 	}
+
+	@Override
+	public Collection<Point> getPointsExtremes() {
+		Collection<Point> collection = new HashSet<Point>();
+		collection.add(new Point(centre.getX() + rayon, centre.getY() + rayon));
+		collection.add(new Point(centre.getX() + rayon, centre.getY() - rayon));
+		collection.add(new Point(centre.getX() - rayon, centre.getY() + rayon));
+		collection.add(new Point(centre.getX() - rayon, centre.getY() - rayon));
+		return collection;
+	}
 }

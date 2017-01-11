@@ -8,6 +8,7 @@ import com.dta.tp.Carre;
 import com.dta.tp.Dessin;
 import com.dta.tp.Figure;
 import com.dta.tp.FigureUtil;
+import com.dta.tp.ImpressionHorsLimiteException;
 import com.dta.tp.Point;
 import com.dta.tp.Rectangle;
 import com.dta.tp.Rond;
@@ -127,6 +128,10 @@ public class TpJava {
 			System.out.println("Erreur (1) durant le traitement : "+e.getMessage());
 		} catch(ClassNotFoundException e){
 			System.out.println("Erreur (2) durant le traitement : "+e.getMessage());
+		} catch (ImpressionHorsLimiteException e) {
+			System.out.println("Erreur (3) Impression hors limite !!");
+			System.out.println(dessin.getFigures());
+			System.out.println(dessin.getPointsExtremes());
 		}
 	}
 }

@@ -3,6 +3,7 @@ package com.dta.tp;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
 
 public class Dessin implements Serializable {
@@ -21,6 +22,13 @@ public class Dessin implements Serializable {
 	
 	public Collection<Figure> getFigures(){
 		return figures;
+	}
+	
+	public Collection<Point> getPointsExtremes(){
+		Collection<Point> extremes = new HashSet<Point>();
+		getFigures().stream()
+					.forEach(f -> extremes.addAll(f.getPointsExtremes()));
+		return extremes;
 	}
 	
 }
