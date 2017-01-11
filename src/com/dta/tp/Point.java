@@ -27,5 +27,14 @@ public class Point {
 	public String toString(){
 		return "["+getX()+";"+getY()+"]";
 	}
-
+	
+	public boolean Equals(Object o){
+		if(o instanceof Point){
+			Point p = (Point) o;
+			return (p.getX() == this.getX())&&(p.getY() == this.getY());
+		} else {
+			return false;
+		}
+	}
+	
 }

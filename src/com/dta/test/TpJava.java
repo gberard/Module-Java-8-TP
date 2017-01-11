@@ -34,6 +34,15 @@ public class TpJava {
 		
 		Rectangle rt3 = FigureUtil.getRandomRectangle();
 		System.out.println(rt3);
+
+		Point p2 = new Point(6,1);
+		Point p3 = new Point(5,1);
+		Point p4 = new Point(6,2);
+		Point p5 = new Point(6,1);
+		System.out.println( p2.Equals(p3) ); // false
+		System.out.println( p3.Equals(p4) ); // false
+		System.out.println( p4.Equals(p5) ); // false
+		System.out.println( p5.Equals(p2) ); // true
 		
 		Carre c1 = new Carre(p3, 5);
 		System.out.println(c1);
