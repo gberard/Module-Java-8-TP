@@ -78,4 +78,20 @@ public class FigureUtil {
 		
 	}
 	
+	public static Point[] getPoints(Figure[] figures){
+		int nbPoint = 0;
+		for(Figure f : figures){
+			nbPoint+= f.getPoints().length;
+		}
+		Point[] points = new Point[nbPoint];
+		int index = 0;
+		for(Figure f : figures){
+			Point[] temps = f.getPoints();
+			for(int i=0;i<temps.length;i++, index++){
+				points[index]= temps[i];
+			}
+		}
+		return points;
+	}
+	
 }

@@ -27,5 +27,10 @@ public class Segment extends Figure {
 		int y = (getDebut().getY() + getFin().getY()) / 2;
 		return new Point(x, y);
 	}
+
+	@Override
+	public Point[] getPoints() {
+		return new Point[]{debut, fin};
+	}
 	
 }

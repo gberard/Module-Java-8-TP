@@ -48,5 +48,10 @@ public class Rectangle extends Figure implements Surfacable {
 		int hauteur = this.getPointHautDroit().getY() - this.getPointBasGauche().getY();
 		return largeur * hauteur;
 	}
+
+	@Override
+	public Point[] getPoints() {
+		return new Point[]{getPointBasDroit(), getPointBasGauche(), getPointHautGauche(), getPointHautDroit()};
+	}
 	
 }
