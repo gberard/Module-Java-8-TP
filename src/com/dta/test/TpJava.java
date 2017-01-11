@@ -6,6 +6,7 @@ import com.dta.tp.FigureUtil;
 import com.dta.tp.Point;
 import com.dta.tp.Rectangle;
 import com.dta.tp.Rond;
+import com.dta.tp.Segment;
 
 public class TpJava {
 	public static void main(String args[]){
@@ -56,6 +57,11 @@ public class TpJava {
 		
 		Figure f3 = FigureUtil.getRandomFigure();
 		f3.affiche();
+		
+		Segment s1 = new Segment( new Point(20, 20), 5 , true );
+		s1.affiche();
+		Segment s2 = new Segment( new Point(20, 20), 5 , false );
+		s2.affiche();
 		
 	}
 }

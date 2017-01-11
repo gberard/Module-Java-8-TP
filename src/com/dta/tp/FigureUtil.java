@@ -43,13 +43,22 @@ public class FigureUtil {
 		return new Carre(basGauche, cote);
 	}
 	
+	public static Segment getRandomSegment(){
+		Point debut = getRandomPoint(X_MIN, X_MAX, Y_MIN, Y_MAX);
+		int longeur = getRandomInteger(SIZE_MIN, SIZE_MAX);
+		boolean horizontal = getRandomInteger(0, 1) > 0.5;
+		return new Segment(debut, longeur, horizontal);
+	}
+	
 	public static Figure getRandomFigure(){
-		int choix = getRandomInteger(0, 2);
+		int choix = getRandomInteger(0, 3);
 		switch(choix){
 		case 0 : 
 			return getRandomRond();
 		case 1 : 
 			return getRandomCarre();
+		case 2 : 
+			return getRandomSegment();
 		default : 
 			return getRandomRectangle();
 		}
