@@ -1,9 +1,12 @@
 package com.dta.tp;
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.HashSet;
 
-public class Segment extends Figure {
+public class Segment extends Figure implements Serializable {
+	
+	private static final long serialVersionUID = 6981853775585694855L;
 	
 	private Point debut, fin;
 	

@@ -1,7 +1,11 @@
 package com.dta.tp;
 
-public class Carre extends Rectangle{
+import java.io.Serializable;
+
+public class Carre extends Rectangle implements Serializable{
 	
+	private static final long serialVersionUID = 6423085694867492502L;
+
 	public Carre(Point p, int cote){
 		super(p, cote, cote);
 	}

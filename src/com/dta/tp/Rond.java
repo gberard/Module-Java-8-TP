@@ -1,9 +1,12 @@
 package com.dta.tp;
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.HashSet;
 
-public class Rond extends Figure implements Surfacable {
+public class Rond extends Figure implements Surfacable, Serializable{
+	
+	private static final long serialVersionUID = -6680982631033885326L;
 	
 	private Point centre;
 	private int rayon;

@@ -1,5 +1,6 @@
 package com.dta.test;
 
+import java.io.IOException;
 import java.util.Collection;
 import java.util.Optional;
 
@@ -115,5 +116,17 @@ public class TpJava {
 		Optional<Figure> f7 = FigureUtil.get("SEG10");
 		System.out.println(f7);
 		
+		Dessin d2 = new Dessin();
+		FigureUtil.genere(10).stream()
+								.forEach(f -> d2.add(f));
+		try {
+			FigureUtil.imprime(d2);
+			FigureUtil.sauvegarde(d2);
+			System.out.println(FigureUtil.charge("/tmp/monDessin7499603493539879543.save").getFigures());
+		} catch(IOException e){
+			System.out.println("Erreur (1) durant le traitement : "+e.getMessage());
+		} catch(ClassNotFoundException e){
+			System.out.println("Erreur (2) durant le traitement : "+e.getMessage());
+		}
 	}
 }

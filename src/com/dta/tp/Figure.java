@@ -1,9 +1,12 @@
 package com.dta.tp;
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.Optional;
 
-public abstract class Figure implements Comparable<Figure> {
+public abstract class Figure implements Comparable<Figure>, Serializable {
+	
+	private static final long serialVersionUID = -5458801387012177734L;
 	
 	private static int nextID = 1;
 	private final String id = getType() + (nextID++);

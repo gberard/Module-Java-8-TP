@@ -1,6 +1,8 @@
 package com.dta.tp;
 
-public enum Couleur {
+import java.io.Serializable;
+
+public enum Couleur implements Serializable {
 	Rouge('R'), Vert('V'), Bleu('B'), Jaune('J'), Noir('N');
 	private char code;
 	Couleur(char c){

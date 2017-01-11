@@ -1,5 +1,13 @@
 package com.dta.tp;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -149,6 +157,51 @@ public class FigureUtil {
 		} else {
 			return Optional.empty();
 		}
+	}
+	
+	public static void imprime(Dessin d) throws IOException {
+		File file = File.createTempFile("monDessin", ".dessin");
+		PrintWriter sortie = new PrintWriter(new FileOutputStream(file));
+		d.getFigures().stream()
+						.forEach(f -> sortie.println(f));
+		for(int x=X_MIN;x<X_MAX;x++){
+			sortie.print("=");
+		}
+		sortie.println();
+		for(int y=Y_MIN;y<Y_MAX;y++){
+			for(int x=X_MIN;x<X_MAX;x++){
+				Optional<Figure> figure = getFigureEn(new Point(x,y),d);
+				if(figure.isPresent()){
+					sortie.print(figure.get().getCouleur().getCode());
+				} else {
+					sortie.print(" ");
+				}
+			}
+			sortie.println();
+		}
+		System.out.println("Impression sous " + file.getAbsolutePath());
+		sortie.close();
+	}
+	
+	public static void sauvegarde(Dessin d) throws IOException {
+		File file = File.createTempFile("monDessin", ".save");
+		ObjectOutputStream sortie = new ObjectOutputStream(new FileOutputStream(file));
+		sortie.writeObject(d);
+		System.out.println("Sauvegarde sous " + file.getAbsolutePath());
+		sortie.close();
+	}
+	
+	public static Dessin charge(String filename) throws IOException, ClassNotFoundException {
+		Dessin dessin;
+		try {
+			ObjectInputStream sortie = new ObjectInputStream(new FileInputStream(filename));
+			dessin = (Dessin) sortie.readObject();
+			sortie.close();
+		} catch (FileNotFoundException e) {
+			System.out.println("Fichier non trouvé : " + e.getMessage());
+			dessin = new Dessin();
+		}
+		return dessin;
 	}
 	
 }

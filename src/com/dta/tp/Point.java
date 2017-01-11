@@ -1,6 +1,10 @@
 package com.dta.tp;
 
-public class Point {
+import java.io.Serializable;
+
+public class Point implements Serializable {
+	
+	private static final long serialVersionUID = 4679915874857506481L;
 	
 	public static final int INIT_X = 25;
 	public static final int INIT_Y = 25;

@@ -1,9 +1,12 @@
 package com.dta.tp;
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.HashSet;
 
-public class Rectangle extends Figure implements Surfacable {
+public class Rectangle extends Figure implements Surfacable, Serializable {
+	
+	private static final long serialVersionUID = 4330513109081964108L;
 	
 	private Point basGauche, basDroit, hautGauche, hautDroit;
 	
