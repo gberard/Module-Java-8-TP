@@ -3,6 +3,7 @@ package com.dta.test;
 import java.util.Collection;
 
 import com.dta.tp.Carre;
+import com.dta.tp.Dessin;
 import com.dta.tp.Figure;
 import com.dta.tp.FigureUtil;
 import com.dta.tp.Point;
@@ -82,7 +83,20 @@ public class TpJava {
 		Collection<Point> points = FigureUtil.getPoints(rd1, rd2, rd3, rt1, rt2, rt3, c1, f1, f2, f3, s1, s2);
 		System.out.println("Points : " + points);
 		
-		Collection<Figure> figures = FigureUtil.genere(10);
+		Collection<Figure> figures = FigureUtil.genere(50);
 		System.out.println(figures);
+		
+		Dessin dessin = new Dessin();
+		for(Figure f : figures){
+			dessin.add(f);
+		}
+		
+		Figure couverte = FigureUtil.getFigureEn(new Point(), dessin);
+		if(couverte==null){
+			System.out.println("Rien");
+		} else {
+			couverte.affiche();
+		}
+		
 	}
 }

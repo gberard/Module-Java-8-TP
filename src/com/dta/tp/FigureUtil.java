@@ -2,6 +2,7 @@ package com.dta.tp;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Iterator;
 
 public class FigureUtil {
 	
@@ -96,6 +97,17 @@ public class FigureUtil {
 			collection.add(getRandomFigure());
 		}
 		return collection;
+	}
+	
+	public static Figure getFigureEn(Point p, Dessin d){
+		Iterator<Figure> iterator = d.getFigures().iterator();
+		while(iterator.hasNext()){
+			Figure f = iterator.next();
+			if(f.couvre(p)){
+				return f;
+			}
+		}
+		return null;
 	}
 	
 }
