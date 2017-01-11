@@ -1,6 +1,7 @@
 package com.dta.test;
 
 import com.dta.tp.Carre;
+import com.dta.tp.Figure;
 import com.dta.tp.FigureUtil;
 import com.dta.tp.Point;
 import com.dta.tp.Rectangle;
@@ -46,6 +47,15 @@ public class TpJava {
 		
 		Carre c1 = new Carre(p3, 5);
 		System.out.println(c1);
+		
+		Figure f1 = FigureUtil.getRandomFigure();
+		f1.affiche();
+		
+		Figure f2 = FigureUtil.getRandomFigure();
+		f2.affiche();
+		
+		Figure f3 = FigureUtil.getRandomFigure();
+		f3.affiche();
 		
 	}
 }

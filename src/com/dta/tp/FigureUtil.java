@@ -37,4 +37,23 @@ public class FigureUtil {
 		return new Rectangle(basGauche, largeur, hauteur);
 	}
 	
+	public static Carre getRandomCarre(){
+		int cote = getRandomInteger(SIZE_MIN, SIZE_MAX);
+		Point basGauche = getRandomPoint(X_MIN, X_MAX, Y_MIN, Y_MAX);
+		return new Carre(basGauche, cote);
+	}
+	
+	public static Figure getRandomFigure(){
+		int choix = getRandomInteger(0, 2);
+		switch(choix){
+		case 0 : 
+			return getRandomRond();
+		case 1 : 
+			return getRandomCarre();
+		default : 
+			return getRandomRectangle();
+		}
+		
+	}
+	
 }
