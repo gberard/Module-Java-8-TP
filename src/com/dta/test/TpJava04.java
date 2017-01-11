@@ -1,3 +1,5 @@
+package com.dta.test;
+
 class TpJava04 {
 	public static void main(String args[]){
 		float montant = Float.parseFloat(args[0]);

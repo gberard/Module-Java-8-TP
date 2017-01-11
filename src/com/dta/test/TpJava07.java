@@ -1,3 +1,5 @@
+package com.dta.test;
+
 class TpJava07 {
 	public static void main(String args[]){
 		int nb = Integer.parseInt(args[0]);

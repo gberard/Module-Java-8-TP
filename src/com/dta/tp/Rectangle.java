@@ -1,3 +1,4 @@
+package com.dta.tp;
 
 public class Rectangle {
 	

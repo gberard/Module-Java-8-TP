@@ -1,3 +1,5 @@
+package com.dta.test;
+
 class TpJava03 {
 	public static void main(String args[]){
 		byte x = 10;

@@ -1,3 +1,5 @@
+package com.dta.test;
+
 class TpJava02 {
 	public static void main(String args[]){
 		System.out.println("Avec 1234");

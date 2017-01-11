@@ -1,3 +1,9 @@
+package com.dta.test;
+
+import com.dta.tp.FigureUtil;
+import com.dta.tp.Point;
+import com.dta.tp.Rectangle;
+import com.dta.tp.Rond;
 
 public class TpJava {
 	public static void main(String args[]){
