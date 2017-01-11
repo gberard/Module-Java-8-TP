@@ -78,7 +78,7 @@ public class FigureUtil {
 		
 	}
 	
-	public static Point[] getPoints(Figure[] figures){
+	public static Point[] getPoints(Figure... figures){
 		int nbPoint = 0;
 		for(Figure f : figures){
 			nbPoint+= f.getPoints().length;

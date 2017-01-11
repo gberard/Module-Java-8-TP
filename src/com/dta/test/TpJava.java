@@ -77,7 +77,7 @@ public class TpJava {
 		Surfacable sr3 = FigureUtil.getRandomSurfacable();
 		System.out.println(sr3 + " -> " + sr3.surface());
 		
-		Point points[] = FigureUtil.getPoints(new Figure[]{rd1, rd2, rd3, rt1, rt2, rt3, c1, f1, f2, f3, s1, s2});
+		Point points[] = FigureUtil.getPoints(rd1, rd2, rd3, rt1, rt2, rt3, c1, f1, f2, f3, s1, s2);
 		System.out.print("Points : ");
 		for(Point p : points){
 			System.out.print(p);
