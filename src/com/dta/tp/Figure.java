@@ -5,6 +5,15 @@ import java.util.Optional;
 
 public abstract class Figure implements Comparable<Figure> {
 	
+	private static int nextID = 1;
+	private final String id = getType() + (nextID++);
+	
+	public String getId(){
+		return id;
+	}
+	
+	protected abstract String getType();
+	
 	public abstract Point getCentre();
 	
 	public abstract Collection<Point> getPoints();

@@ -2,7 +2,9 @@ package com.dta.tp;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -16,6 +18,8 @@ public class FigureUtil {
 	
 	private static final int Y_MIN = 0;
 	private static final int Y_MAX = 99;
+	
+	private static final Map<String, Figure> ids = new HashMap<String, Figure>();
 
 	// Création d'un constructeur private afin d'interdire l'instanciation de cette classe.
 	private FigureUtil(){}
@@ -33,27 +37,35 @@ public class FigureUtil {
 	public static Rond getRandomRond(){
 		int rayon = getRandomInteger(SIZE_MIN / 2, SIZE_MAX / 2);
 		Point centre = getRandomPoint(X_MIN, X_MAX, Y_MIN, Y_MAX);
-		return new Rond(centre, rayon);
+		Rond rond = new Rond(centre, rayon);
+		ids.put(rond.getId(), rond);
+		return rond;
 	}
 	
 	public static Rectangle getRandomRectangle(){
 		int largeur = getRandomInteger(SIZE_MIN, SIZE_MAX);
 		int hauteur = getRandomInteger(SIZE_MIN, SIZE_MAX);
 		Point basGauche = getRandomPoint(X_MIN, X_MAX, Y_MIN, Y_MAX);
-		return new Rectangle(basGauche, largeur, hauteur);
+		Rectangle rectangle = new Rectangle(basGauche, largeur, hauteur);
+		ids.put(rectangle.getId(), rectangle);
+		return rectangle;
 	}
 	
 	public static Carre getRandomCarre(){
 		int cote = getRandomInteger(SIZE_MIN, SIZE_MAX);
 		Point basGauche = getRandomPoint(X_MIN, X_MAX, Y_MIN, Y_MAX);
-		return new Carre(basGauche, cote);
+		Carre carre = new Carre(basGauche, cote);
+		ids.put(carre.getId(), carre);
+		return carre;
 	}
 	
 	public static Segment getRandomSegment(){
 		Point debut = getRandomPoint(X_MIN, X_MAX, Y_MIN, Y_MAX);
-		int longeur = getRandomInteger(SIZE_MIN, SIZE_MAX);
+		int longueur = getRandomInteger(SIZE_MIN, SIZE_MAX);
 		boolean horizontal = getRandomInteger(0, 1) > 0.5;
-		return new Segment(debut, longeur, horizontal);
+		Segment segment = new Segment(debut, longueur, horizontal);
+		ids.put(segment.getId(), segment);
+		return segment;
 	}
 	
 	public static Figure getRandomFigure(){
@@ -119,6 +131,14 @@ public class FigureUtil {
 				.map(x -> (Surfacable) x)
 				.sorted( (f1,f2) -> f1.surface() > f2.surface() ? -1 : 1)
 				.collect(Collectors.toList());
+	}
+	
+	public static Optional<Figure> get(String id){
+		if(ids.containsKey(id)){
+			return Optional.of(ids.get(id));
+		} else {
+			return Optional.empty();
+		}
 	}
 	
 }

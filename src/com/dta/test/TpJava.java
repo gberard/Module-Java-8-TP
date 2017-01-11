@@ -106,5 +106,14 @@ public class TpJava {
 		System.out.println(FigureUtil.trieProcheOrigine(dessin));
 		System.out.println(FigureUtil.trieDominant(dessin));
 		
+		Optional<Figure> f4 = FigureUtil.get("ROND10");
+		System.out.println(f4);
+		Optional<Figure> f5 = FigureUtil.get("CARRE10");
+		System.out.println(f5);
+		Optional<Figure> f6 = FigureUtil.get("RECT10");
+		System.out.println(f6);
+		Optional<Figure> f7 = FigureUtil.get("SEG10");
+		System.out.println(f7);
+		
 	}
 }

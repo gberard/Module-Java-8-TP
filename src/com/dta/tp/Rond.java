@@ -13,8 +13,12 @@ public class Rond extends Figure implements Surfacable {
 		this.rayon = rayon;
 	}
 	
+	protected String getType(){
+		return "ROND";
+	}
+	
 	public String toString(){
-		return "[ROND "+centre+" "+rayon+"]";
+		return "["+getType()+" "+centre+" "+rayon+"]";
 	}
 	
 	@Override

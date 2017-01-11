@@ -20,8 +20,12 @@ public class Segment extends Figure {
 		return fin;
 	}
 	
+	protected String getType(){
+		return "SEG";
+	}
+	
 	public String toString(){
-		return "[SEG "+getDebut()+" "+getFin()+" ]";
+		return "["+getType()+" "+getDebut()+" "+getFin()+" ]";
 	}
 	
 	@Override
